@@ -1,21 +1,43 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="jumbotron">
+        <h1 class="display-4">We Linken!</h1>
+        <p class="lead">This is a simple example of qr tech, explaining and displaying its capabilities...</p>
+      </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div *ngFor="let c of codes" class="col-3">
+        <div class="card">
+            <img src="{{c.data}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-sm-12" style="margin-top:70px;">
+        <div class="form-group">
+          <input type="text" class="form-control" aria-describedby="qrcodeData" placeholder="Data:" [(ngModel)]="qrdata">
+          <small class="form-text text-muted">We'll never share your data with anyone else.. Your secret is safe with us. :)</small>
+        </div>
+    </div>
+    <div class="col-md-2 col-sm-12" style="margin-top:70px;">
+        <button type="button" class="btn btn-block btn-primary" (click)="generateQRData()" >Generate</button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+      <div #elem>
+        <ngx-qrcode [qrc-value]="createdCode" class="img-responsive"></ngx-qrcode>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 col-sm-12">
+      <a (click)="submitCode()" class="btn btn-block btn-primary">Submit Code</a>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
 <router-outlet></router-outlet>
