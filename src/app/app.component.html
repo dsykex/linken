@@ -32,6 +32,7 @@
       <div #elem>
         <ngx-qrcode [qrc-value]="createdCode" class="img-responsive"></ngx-qrcode>
       </div>
+      <ng2-qrcode-reader (result)="render($event)" [qrr-show]="showQRCode" [qrr-value]="qrImageData"></ng2-qrcode-reader>
   </div>
   <div class="row justify-content-center">
     <div class="col-md-3 col-sm-12">

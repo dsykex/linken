@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div class=\"container\">\n  <div class=\"row justify-content-center\">\n      <div class=\"jumbotron\">\n        <h1 class=\"display-4\">We Linken!</h1>\n        <p class=\"lead\">This is a simple example of qr tech, explaining and displaying its capabilities...</p>\n      </div>\n  </div>\n  <div class=\"row justify-content-md-center\">\n    <div *ngFor=\"let c of codes\" class=\"col-3\">\n        <div class=\"card\">\n            <img src=\"{{c.data}}\" class=\"card-img-top\" alt=\"...\">\n            <div class=\"card-body\">\n              \n            </div>\n          </div>\n    </div>\n  </div>\n\n  <div class=\"row justify-content-center\">\n    <div class=\"col-md-10 col-sm-12\" style=\"margin-top:70px;\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" aria-describedby=\"qrcodeData\" placeholder=\"Data:\" [(ngModel)]=\"qrdata\">\n          <small class=\"form-text text-muted\">We'll never share your data with anyone else.. Your secret is safe with us. :)</small>\n        </div>\n    </div>\n    <div class=\"col-md-2 col-sm-12\" style=\"margin-top:70px;\">\n        <button type=\"button\" class=\"btn btn-block btn-primary\" (click)=\"generateQRData()\" >Generate</button>\n    </div>\n  </div>\n  <div class=\"row justify-content-center\">\n      <div #elem>\n        <ngx-qrcode [qrc-value]=\"createdCode\" class=\"img-responsive\"></ngx-qrcode>\n      </div>\n  </div>\n  <div class=\"row justify-content-center\">\n    <div class=\"col-md-3 col-sm-12\">\n      <a (click)=\"submitCode()\" class=\"btn btn-block btn-primary\">Submit Code</a>\n    </div>\n  </div>\n</div>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div class=\"container\">\n  <div class=\"row justify-content-center\">\n      <div class=\"jumbotron\">\n        <h1 class=\"display-4\">We Linken!</h1>\n        <p class=\"lead\">This is a simple example of qr tech, explaining and displaying its capabilities...</p>\n      </div>\n  </div>\n  <div class=\"row justify-content-md-center\">\n    <div *ngFor=\"let c of codes\" class=\"col-3\">\n        <div class=\"card\">\n            <img src=\"{{c.data}}\" class=\"card-img-top\" alt=\"...\">\n            <div class=\"card-body\">\n              \n            </div>\n          </div>\n    </div>\n  </div>\n\n  <div class=\"row justify-content-center\">\n    <div class=\"col-md-10 col-sm-12\" style=\"margin-top:70px;\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" aria-describedby=\"qrcodeData\" placeholder=\"Data:\" [(ngModel)]=\"qrdata\">\n          <small class=\"form-text text-muted\">We'll never share your data with anyone else.. Your secret is safe with us. :)</small>\n        </div>\n    </div>\n    <div class=\"col-md-2 col-sm-12\" style=\"margin-top:70px;\">\n        <button type=\"button\" class=\"btn btn-block btn-primary\" (click)=\"generateQRData()\" >Generate</button>\n    </div>\n  </div>\n  <div class=\"row justify-content-center\">\n      <div #elem>\n        <ngx-qrcode [qrc-value]=\"createdCode\" class=\"img-responsive\"></ngx-qrcode>\n      </div>\n      <ng2-qrcode-reader (result)=\"render($event)\" [qrr-show]=\"showQRCode\" [qrr-value]=\"qrImageData\"></ng2-qrcode-reader>\n  </div>\n  <div class=\"row justify-content-center\">\n    <div class=\"col-md-3 col-sm-12\">\n      <a (click)=\"submitCode()\" class=\"btn btn-block btn-primary\">Submit Code</a>\n    </div>\n  </div>\n</div>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".border {\n  border: 1px solid #000;\n}\n\n.card {\n  transition: 0.3s all ease-in-out;\n  opacity: 0.1;\n}\n\n.card:hover {\n  opacity: 0.1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxTaXp6b1xcRG9jdW1lbnRzXFxBcHBzXFxsaW5rZW4vc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksc0JBQUE7QUNDSjs7QURFQTtFQUVJLGdDQUFBO0VBQ0EsWUFBQTtBQ0FKOztBREdBO0VBRUksWUFBQTtBQ0RKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJvcmRlcntcclxuICAgIGJvcmRlcjoxcHggc29saWQgIzAwMDtcclxufVxyXG5cclxuLmNhcmRcclxue1xyXG4gICAgdHJhbnNpdGlvbjogMC4zcyBhbGwgZWFzZS1pbi1vdXQ7XHJcbiAgICBvcGFjaXR5OjAuMTtcclxufVxyXG5cclxuLmNhcmQ6aG92ZXJcclxue1xyXG4gICAgb3BhY2l0eTowLjE7XHJcbn0iLCIuYm9yZGVyIHtcbiAgYm9yZGVyOiAxcHggc29saWQgIzAwMDtcbn1cblxuLmNhcmQge1xuICB0cmFuc2l0aW9uOiAwLjNzIGFsbCBlYXNlLWluLW91dDtcbiAgb3BhY2l0eTogMC4xO1xufVxuXG4uY2FyZDpob3ZlciB7XG4gIG9wYWNpdHk6IDAuMTtcbn0iXX0= */"
+module.exports = ".border {\n  border: 1px solid #000;\n}\n\n.card {\n  transition: 0.3s all ease-in-out;\n  opacity: 1;\n}\n\n.card:hover {\n  opacity: 1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxTaXp6b1xcRG9jdW1lbnRzXFxBcHBzXFxsaW5rZW4vc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksc0JBQUE7QUNDSjs7QURFQTtFQUVJLGdDQUFBO0VBQ0EsVUFBQTtBQ0FKOztBREdBO0VBRUksVUFBQTtBQ0RKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJvcmRlcntcclxuICAgIGJvcmRlcjoxcHggc29saWQgIzAwMDtcclxufVxyXG5cclxuLmNhcmRcclxue1xyXG4gICAgdHJhbnNpdGlvbjogMC4zcyBhbGwgZWFzZS1pbi1vdXQ7XHJcbiAgICBvcGFjaXR5OjE7XHJcbn1cclxuXHJcbi5jYXJkOmhvdmVyXHJcbntcclxuICAgIG9wYWNpdHk6MTtcclxufSIsIi5ib3JkZXIge1xuICBib3JkZXI6IDFweCBzb2xpZCAjMDAwO1xufVxuXG4uY2FyZCB7XG4gIHRyYW5zaXRpb246IDAuM3MgYWxsIGVhc2UtaW4tb3V0O1xuICBvcGFjaXR5OiAxO1xufVxuXG4uY2FyZDpob3ZlciB7XG4gIG9wYWNpdHk6IDE7XG59Il19 */"
 
 /***/ }),
 
@@ -95,9 +95,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(renderer) {
+        this.renderer = renderer;
         this.title = 'linken';
         this.codes = [];
+        this.showQRCode = true;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -135,6 +137,9 @@ var AppComponent = /** @class */ (function () {
             });
         });
     };
+    AppComponent.prototype.render = function (e) {
+        console.log(e.result);
+    };
     AppComponent.prototype.submitCode = function () {
         var _this = this;
         var db = _fb__WEBPACK_IMPORTED_MODULE_2__["default"].firestore();
@@ -154,6 +159,10 @@ var AppComponent = /** @class */ (function () {
         });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('result', { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], AppComponent.prototype, "resultElement", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('elem', { static: false }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
     ], AppComponent.prototype, "qr", void 0);
@@ -163,7 +172,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -189,6 +198,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-qrcode2 */ "./node_modules/ngx-qrcode2/index.js");
+/* harmony import */ var ng2_qrcode_reader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ng2-qrcode-reader */ "./node_modules/ng2-qrcode-reader/index.js");
+
 
 
 
@@ -207,6 +218,7 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 ngx_qrcode2__WEBPACK_IMPORTED_MODULE_6__["NgxQRCodeModule"],
+                ng2_qrcode_reader__WEBPACK_IMPORTED_MODULE_7__["NgQRCodeReaderModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
             ],

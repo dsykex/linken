@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Renderer } from '@angular/core';
 import * as firebase from './fb';
 
 @Component({
@@ -13,10 +13,12 @@ export class AppComponent {
   public qrdata: any;
   public qrImageData;
   public codes: any = [];
+  @ViewChild('result', {static: false}) resultElement: ElementRef;
+  public showQRCode : boolean = true;
 
   @ViewChild('elem', {static:false}) qr: ElementRef;
 
-  constructor()
+  constructor(public renderer: Renderer)
   {
     
   }
@@ -46,12 +48,15 @@ export class AppComponent {
       if(q)
       {
         this.qrImageData = q;
+        
         console.log(this.qrImageData);
         clearInterval(imgInt);
-
-
       }
     }, 100);
+  }
+
+  render(e){
+    console.log(e.result);   
   }
 
   submitCode()
