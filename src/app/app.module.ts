@@ -21,9 +21,7 @@ import { CreateCodeComponent } from './create-code/create-code.component';
     NgxQRCodeModule,
     NgQRCodeReaderModule,
     FormsModule,
- 
     AppRoutingModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

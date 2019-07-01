@@ -22,6 +22,7 @@
     "firebase": "^6.2.0",
     "ng2-qrcode-reader": "0.0.1",
     "ngx-qrcode2": "0.0.9",
+    "ngx-quill": "^6.2.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
