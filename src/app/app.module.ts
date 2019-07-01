@@ -5,16 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 import { NgQRCodeReaderModule } from 'ng2-qrcode-reader';
+import { LandingComponent } from './landing/landing.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     NgxQRCodeModule,
     NgQRCodeReaderModule,
     FormsModule,
+ 
     AppRoutingModule,
 
   ],

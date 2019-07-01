@@ -1,0 +1,54 @@
+<div class="container">
+  <div style="padding-top:20%;">
+  <div class="row justify-content-center">
+    <img src="../../assets/img/logo.png" width="90" height="60" class="logo animated fadeInDown" />
+  </div>
+  <div class="row justify-content-center">
+    
+      <div class="col-md-6 col-sm-12">
+          <div *ngIf="!hasUser">
+              <div *ngIf="signUpActive" class="animated fadeIn">
+                <div style="margin-top: 10px;" *ngIf="!hasUser">
+                    <div class="form-group">
+                      <input type="text" class="form-control" aria-describedby="firstname" placeholder="First Name" [(ngModel)]="user.first_name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" aria-describedby="lastname" placeholder="Last Name" [(ngModel)]="user.last_name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" aria-describedby="email" placeholder="Email" [(ngModel)]="user.email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" aria-describedby="password" placeholder="Password" [(ngModel)]="user.password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" aria-describedby="confirmpassword" placeholder="Confirm Password" [(ngModel)]="user.confirm_password">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="join()">Join</button>
+                </div>
+              </div>
+              <div *ngIf="loginActive" class="animated fadeIn">
+                  <div style="margin-top: 10px;" *ngIf="!hasUser">
+                      <div class="form-group">
+                          <input type="email" class="form-control" aria-describedby="email" placeholder="Email" [(ngModel)]="user.email">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" class="form-control" aria-describedby="password" placeholder="Password" [(ngModel)]="user.password">
+                      </div>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" (click)="login()">Login</button>
+                  </div>
+              </div><br><br>
+              <div class="row justify-content-md-center animated bounceInUp">
+                <div class="col-md-6 col-sm-12">
+                    <button type="button" class="btn btn-secondary btn-sm btn-block" (click)="showLogin()">Have an account?</button>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <button type="button" class="btn btn-secondary btn-sm btn-block" (click)="showSignup()">Need an account?</button>
+                </div>
+              </div>
+              <h5 class="text-center errorMsg animated fadeIn">{{errorMsg}}</h5>
+          </div>
+ 
+      </div>
+    </div>
+  </div>

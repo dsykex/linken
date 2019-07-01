@@ -25,19 +25,7 @@ export class AppComponent {
 
   ngOnInit()
   {
-    let db = firebase.default.firestore();
-    let codes = db.collection('codes');
-
-    codes.onSnapshot(snap => {
-      snap.docChanges().forEach(change => {
-        if(change.type == 'added')
-        {
-          this.codes.push(change.doc.data());
-        }
-      });
-    });
-
-    console.log(this.codes);
+    
   }
 
   async generateQRData()
