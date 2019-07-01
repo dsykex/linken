@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getUserInfo().then(user => {
-      this.user = user;
+      if(!user.email)
+        this.router.navigateByUrl('/landing');
+      else
+        this.user = user;
+    
     })
   }
 

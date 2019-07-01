@@ -7,12 +7,14 @@ import {NgxQRCodeModule} from 'ngx-qrcode2';
 import { NgQRCodeReaderModule } from 'ng2-qrcode-reader';
 import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
+import { CreateCodeComponent } from './create-code/create-code.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    HomeComponent
+    HomeComponent,
+    CreateCodeComponent
   ],
   imports: [
     BrowserModule,
