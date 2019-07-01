@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+.border
+{
+    border:1px solid #000;
+}
+
+.badge-primary
+{
+    color:#fff;
+    background:#C42021;
+}
+
+.btn-primary
+{
+    background:#C42021;
+    border:none;
+    
+}
+.btn-primary:hover, .btn-primary:focus
+{
+    background:none;
+    color:#C42021;
+    border:none;
+}
+
+.breadcrumb-item a
+{
+    color:#C42021;
+}
+
+p{
+    color:#333;
+}
