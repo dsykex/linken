@@ -103,6 +103,8 @@ export class CreateCodeComponent implements OnInit {
   {
     this.encodedQR = dataArr;
 
+    console.log(this.encodedQR);
+
     let imgInt = await setInterval(()=> {
       let q = this.qr.nativeElement.children[0].children[0].children[0].src;
       if(q)
@@ -110,6 +112,16 @@ export class CreateCodeComponent implements OnInit {
         let imgData = q;
         
         console.log(imgData);
+
+        let db = firebase.default.firestore();
+        let code_data = db.collection('code_data');
+
+        let _id = code_data.doc().id;
+        code_data.doc(_id).set({id: _id, data: imgData, owner: this.user.email, createdAt: Date.now()}).then(docRef => {
+          console.log('code data added!');
+          this.qrImgData=imgData;
+        });
+
         clearInterval(imgInt);
       }
     }, 100);
@@ -121,12 +133,12 @@ export class CreateCodeComponent implements OnInit {
 
   createCode()
   {
-    let _codeData = [];
+    let _codeData: any = {};
     if(this.user.email)
     {
       if(this.code.content)
       {
-        _codeData[0] = this.user.email;
+        _codeData['o'] = this.user.email;
 
         let db = firebase.default.firestore();
         let code_content = db.collection('code_content');
@@ -137,21 +149,21 @@ export class CreateCodeComponent implements OnInit {
         //Process our qrobject filters for encoding after content is saved
         code_content.doc(_content_id).set(_newContent).then(() => {
           console.log('code added');
-          _codeData[1] = _content_id;
-          _codeData[2] = this.code.recv.split(',');
+          _codeData['cid'] = _content_id;
+          _codeData['rcv'] = this.code.recv.split(',');
 
           if(this.hasTime)
           {
             let seconds = this.code.time * this.multiplier(this.code.timescale);
-            _codeData[4] = Date.now() + seconds;
+            _codeData['t'] = Date.now() + seconds;
           }
 
           if(this.canDL)
-            _codeData[5] = true;
+            _codeData['dl'] = true;
           else
-            _codeData[5]= false;
+            _codeData['dl']= false;
 
-          this.generateQRData(_codeData);
+          this.generateQRData(JSON.stringify(_codeData));
 
         });
       }
