@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CodeService } from '../code.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,12 +15,25 @@ export class HomeComponent implements OnInit, AfterContentInit {
   public user: any = {};
   public codes: Observable<any>;
   public qrImageData: any;
+  msg: string;
 
   constructor(public authService: AuthService, public codeService: CodeService, public zone: NgZone, public router: Router) { 
-
+    /*aqr.create({
+      text: 'Awesome-qr makes the QR code awesome!',
+      size: 800,
+      backgroundImage: 'http://localhost:4201/assets/img/logo.png',
+      callback: data => {
+        console.log(data);
+      },
+      bindElement: 'img-qrcode'
+   });*/
   }
 
   ngAfterContentInit() {
+    this.msg = `The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.
+    The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.
+    The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.`
+
     this.authService.getUserInfo().then(user => {
       if(!user.email)
         this.router.navigateByUrl('/landing');
