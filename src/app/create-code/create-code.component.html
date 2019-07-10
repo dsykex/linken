@@ -65,7 +65,7 @@
           <div class="col-md-5">
             <div #qr>
               <ngx-qrcode [qrc-value]="encodedQR" class="img-responsive"></ngx-qrcode>
-              <ng2-qrcode-reader (result)="render($event)" [qrr-show]="false" [qrr-value]="qrImgData"></ng2-qrcode-reader>
+              <ng2-qrcode-reader (result)="render($event)" [qrr-show]="false" [qrr-value]="readQR"></ng2-qrcode-reader>
             </div>
           </div>
         </div>

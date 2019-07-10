@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9DOlxcVXNlcnNcXFNpenpvXFxEb2N1bWVudHNcXEFwcHNcXGxpbmtlbi9zcmNcXHN0eWxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDhFQUFBIiwiZmlsZSI6InNyYy9zdHlsZXMuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFlvdSBjYW4gYWRkIGdsb2JhbCBzdHlsZXMgdG8gdGhpcyBmaWxlLCBhbmQgYWxzbyBpbXBvcnQgb3RoZXIgc3R5bGUgZmlsZXMgKi9cbiJdfQ== */", '', '']]
+module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\n.border {\n  border: 1px solid #000;\n}\n.badge-primary {\n  color: #fff;\n  background: #C42021;\n}\n.header {\n  background: #efefef;\n  padding: 10px;\n  margin-bottom: 70px;\n}\n.btn-primary {\n  background: #C42021;\n  border: none;\n}\n.btn-primary:hover, .btn-primary:focus {\n  background: none;\n  color: #C42021;\n  border: none;\n}\n.breadcrumb-item a {\n  color: #C42021;\n}\np {\n  color: #333;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9XYXJob2xBbmRXYWxsU3QvRG9jdW1lbnRzL1NDL2xua25TaXRlL3NyYy9zdHlsZXMuc2NzcyIsInNyYy9zdHlsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSw4RUFBQTtBQUNBO0VBRUksc0JBQUE7QUNBSjtBREdBO0VBRUksV0FBQTtFQUNBLG1CQUFBO0FDREo7QURJQTtFQUVJLG1CQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0FDRko7QURLQTtFQUVJLG1CQUFBO0VBQ0EsWUFBQTtBQ0hKO0FETUE7RUFFSSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxZQUFBO0FDSko7QURPQTtFQUVJLGNBQUE7QUNMSjtBRFFBO0VBQ0ksV0FBQTtBQ0xKIiwiZmlsZSI6InNyYy9zdHlsZXMuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFlvdSBjYW4gYWRkIGdsb2JhbCBzdHlsZXMgdG8gdGhpcyBmaWxlLCBhbmQgYWxzbyBpbXBvcnQgb3RoZXIgc3R5bGUgZmlsZXMgKi9cbi5ib3JkZXJcbntcbiAgICBib3JkZXI6MXB4IHNvbGlkICMwMDA7XG59XG5cbi5iYWRnZS1wcmltYXJ5XG57XG4gICAgY29sb3I6I2ZmZjtcbiAgICBiYWNrZ3JvdW5kOiNDNDIwMjE7XG59XG5cbi5oZWFkZXJcbntcbiAgICBiYWNrZ3JvdW5kOiNlZmVmZWY7XG4gICAgcGFkZGluZzoxMHB4O1xuICAgIG1hcmdpbi1ib3R0b206NzBweDtcbn1cblxuLmJ0bi1wcmltYXJ5XG57XG4gICAgYmFja2dyb3VuZDojQzQyMDIxO1xuICAgIGJvcmRlcjpub25lO1xuICAgIFxufVxuLmJ0bi1wcmltYXJ5OmhvdmVyLCAuYnRuLXByaW1hcnk6Zm9jdXNcbntcbiAgICBiYWNrZ3JvdW5kOm5vbmU7XG4gICAgY29sb3I6I0M0MjAyMTtcbiAgICBib3JkZXI6bm9uZTtcbn1cblxuLmJyZWFkY3J1bWItaXRlbSBhXG57XG4gICAgY29sb3I6I0M0MjAyMTtcbn1cblxucHtcbiAgICBjb2xvcjojMzMzO1xufSIsIi8qIFlvdSBjYW4gYWRkIGdsb2JhbCBzdHlsZXMgdG8gdGhpcyBmaWxlLCBhbmQgYWxzbyBpbXBvcnQgb3RoZXIgc3R5bGUgZmlsZXMgKi9cbi5ib3JkZXIge1xuICBib3JkZXI6IDFweCBzb2xpZCAjMDAwO1xufVxuXG4uYmFkZ2UtcHJpbWFyeSB7XG4gIGNvbG9yOiAjZmZmO1xuICBiYWNrZ3JvdW5kOiAjQzQyMDIxO1xufVxuXG4uaGVhZGVyIHtcbiAgYmFja2dyb3VuZDogI2VmZWZlZjtcbiAgcGFkZGluZzogMTBweDtcbiAgbWFyZ2luLWJvdHRvbTogNzBweDtcbn1cblxuLmJ0bi1wcmltYXJ5IHtcbiAgYmFja2dyb3VuZDogI0M0MjAyMTtcbiAgYm9yZGVyOiBub25lO1xufVxuXG4uYnRuLXByaW1hcnk6aG92ZXIsIC5idG4tcHJpbWFyeTpmb2N1cyB7XG4gIGJhY2tncm91bmQ6IG5vbmU7XG4gIGNvbG9yOiAjQzQyMDIxO1xuICBib3JkZXI6IG5vbmU7XG59XG5cbi5icmVhZGNydW1iLWl0ZW0gYSB7XG4gIGNvbG9yOiAjQzQyMDIxO1xufVxuXG5wIHtcbiAgY29sb3I6ICMzMzM7XG59Il19 */", '', '']]
 
 /***/ }),
 
@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Sizzo\Documents\Apps\linken\src\styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! /Users/WarholAndWallSt/Documents/SC/lnknSite/src/styles.scss */"./src/styles.scss");
 
 
 /***/ })

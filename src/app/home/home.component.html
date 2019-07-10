@@ -16,15 +16,19 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-9 col-sm-12" *ngIf="codes">
-      <div class="col-4 m-3" *ngFor="let code of codes">
-        <div class="card">
-          <img src="{{code.data}}" class="card-img-top">
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="col-md-9 col-sm-12">
+      <div class="row" *ngIf="codes">
+        <ng2-qrcode-reader (result)="render($event)" [qrr-show]="false" [qrr-value]="qrImageData"></ng2-qrcode-reader>
+            
+        <div class="col-4 m-3" *ngFor="let code of codes">
+          <div class="card">
+            <img src="{{code.data}}" class="card-img-top">
+            <div class="card-body">
+              <a (click)="renderCode(code)" class="btn btn-primary">Details</a>
+            </div>
           </div>
         </div>
-      </div>
+        </div>
     </div>
   </div>
 </div>

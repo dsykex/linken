@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "linken-84e84"
+    "default": "linken-84e84",
+    "linken": "linken-25010"
   }
 }

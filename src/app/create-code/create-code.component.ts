@@ -18,7 +18,7 @@ export class CreateCodeComponent implements OnInit {
   public hasLocation: boolean;
   public encodedQR: any;
   public dlTxt: string;
-  public qrImgData: any;
+  public readQR: any;
 
   @ViewChild('qr', {static:false}) qr: ElementRef;
 
@@ -99,32 +99,38 @@ export class CreateCodeComponent implements OnInit {
     return timeMult;
   }
 
-  async generateQRData(dataArr)
+  async generateQRData(dataObj)
   {
-    this.encodedQR = dataArr;
+    this.encodedQR = dataObj['content_id'];
 
-    console.log(this.encodedQR);
-
+    let imgData = ''
     let imgInt = await setInterval(()=> {
       let q = this.qr.nativeElement.children[0].children[0].children[0].src;
       if(q)
       {
-        let imgData = q;
-        
-        console.log(imgData);
+        imgData=q;
+        clearInterval(imgInt);
 
         let db = firebase.default.firestore();
         let code_data = db.collection('code_data');
 
-        let _id = code_data.doc().id;
-        code_data.doc(_id).set({id: _id, data: imgData, owner: this.user.email, createdAt: Date.now()}).then(docRef => {
-          console.log('code data added!');
-          this.qrImgData=imgData;
-        });
+        let cid = dataObj['content_id'];
+        delete dataObj['content_id'];
 
-        clearInterval(imgInt);
+        dataObj.data = imgData;
+
+        code_data.add(dataObj).then(docRef => {
+          this.readQR=imgData;
+
+          db.collection('code_content').doc(cid).update({data_id: docRef.id}).then(() => { 
+            
+          });
+
+          this.router.navigateByUrl('home');
+        });
       }
     }, 100);
+
   }
 
   render(e){
@@ -134,41 +140,36 @@ export class CreateCodeComponent implements OnInit {
   createCode()
   {
     let _codeData: any = {};
+
     if(this.user.email)
     {
       if(this.code.content)
       {
-        _codeData['o'] = this.user.email;
-
+        _codeData['owner'] = this.user.email;
+        _codeData['type'] = this.type;
         let db = firebase.default.firestore();
         let code_content = db.collection('code_content');
 
-        let _content_id = code_content.doc().id;
-        let _newContent = {id: _content_id, content: this.code.content};
+        let _newContent = {content: this.code.content};
 
         //Process our qrobject filters for encoding after content is saved
-        code_content.doc(_content_id).set(_newContent).then(() => {
-          console.log('code added');
-          _codeData['cid'] = _content_id;
-          _codeData['rcv'] = this.code.recv.split(',');
+        code_content.add(_newContent).then(added_content => {
+          _codeData['content_id'] = added_content.id;
+          _codeData['recv'] = this.code.recv.split(',');
 
           if(this.hasTime)
           {
             let seconds = this.code.time * this.multiplier(this.code.timescale);
-            _codeData['t'] = Date.now() + seconds;
+            _codeData['time'] = Date.now() + seconds;
           }
 
           if(this.canDL)
             _codeData['dl'] = true;
-          else
-            _codeData['dl']= false;
 
-          this.generateQRData(JSON.stringify(_codeData));
-
+          this.generateQRData(_codeData);
         });
       }
     }
-    
   }
 
 }

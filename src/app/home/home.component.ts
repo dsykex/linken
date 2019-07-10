@@ -1,45 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, AfterContentInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import * as firebase from '../fb';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CodeService } from '../code.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterContentInit {
   public user: any = {};
-  public codes = [];
-  constructor(public authService: AuthService, public router: Router) { }
+  public codes: Observable<any>;
+  public qrImageData: any;
 
-  ngOnInit() {
+  constructor(public authService: AuthService, public codeService: CodeService, public zone: NgZone, public router: Router) { 
+
+  }
+
+  ngAfterContentInit() {
     this.authService.getUserInfo().then(user => {
       if(!user.email)
         this.router.navigateByUrl('/landing');
       else
         this.user = user;
-      
-        this.getCodes();
+
+     
+        this.codeService.getUserCodes(this.user.email).then(data => {
+          this.codes = data;
+          console.log(data);
+        });
+  
+
     });
+    
   }
 
-  async getCodes()
+  ngOnInit()
   {
-    let db = firebase.default.firestore();
-    let codes = db.collection('code_data');
 
-    await codes.where('owner', '==', this.user.email).onSnapshot(snapshot => {
-      snapshot.docChanges().forEach(c => {
-        if(c.type == 'added')
-        {
-          const codeData = c.doc.data();
-          this.codes.push(codeData);
-        }
-      });
-      console.log(this.codes);
-    });
+  }
+
+  renderCode(code)
+  {
+    this.qrImageData = code.data;
+  }
+
+  render(e)
+  {
+    console.log(e.result);
   }
 
   logout()
