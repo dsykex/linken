@@ -101,10 +101,10 @@ export class CreateCodeComponent implements OnInit {
 
   async generateQRData(dataObj)
   {
-    this.encodedQR = dataObj['content_id'];
+    this.encodedQR = JSON.stringify({pc: dataObj['content_id']});
 
-    let imgData = ''
-    let imgInt = await setInterval(()=> {
+    let imgData = '';
+    let imgInt = await setInterval(() => {
       let q = this.qr.nativeElement.children[0].children[0].children[0].src;
       if(q)
       {
@@ -155,7 +155,15 @@ export class CreateCodeComponent implements OnInit {
         //Process our qrobject filters for encoding after content is saved
         code_content.add(_newContent).then(added_content => {
           _codeData['content_id'] = added_content.id;
-          _codeData['recv'] = this.code.recv.split(',');
+          let _recv =  this.code.recv.split(',');
+
+          if(_recv[0] == 'public')
+          {
+            _codeData['public'] = true;
+            delete _codeData['recv'];
+          }
+          else
+            _codeData['recv'] = this.code.recv.split(',');
 
           if(this.hasTime)
           {
