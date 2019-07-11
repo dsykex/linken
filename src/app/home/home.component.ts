@@ -5,12 +5,12 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CodeService } from '../code.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit, AfterContentInit {
   public user: any = {};
   public codes: Observable<any>;
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
       },
       bindElement: 'img-qrcode'
    });*/
+   //console.log(AwesomeQRCode);
   }
 
   ngAfterContentInit() {

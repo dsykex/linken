@@ -52,7 +52,7 @@ module.exports = "<p>\n  code-details works!\n</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-md-8 col-sm-12\">\n      <form>\n        <div class=\"row m-5\">\n          <div class=\"col-md-4\">\n            <button class=\"btn btn-small btn-primary btn-block\" (click)=\"setType('msg')\">Message</button>\n          </div>\n          <div class=\"col-md-4\">\n            <button class=\"btn btn-small btn-primary btn-block\" (click)=\"setType('file')\">File</button>\n          </div>\n          <div class=\"col-md-4\">\n            <button class=\"btn btn-small btn-primary btn-block\" (click)=\"setType('link')\">Link</button>\n          </div>\n        </div>\n        <div class=\"form-group\" *ngIf=\"type=='msg'\">\n          <textarea [(ngModel)]=\"code.content\" class=\"form-control\" id=\"codeContent\" [ngModelOptions]=\"{standalone:true}\" [(ngModel)]=\"code.content\">\n          </textarea>\n          <small class=\"form-text text-muted\">Please be curse-sensitive with messages and clean :)</small>\n        </div>\n        <div class=\"form-group\" *ngIf=\"type=='file'\">\n            <input type=\"file\" class=\"form-control-file\" id=\"codeContent\" [ngModelOptions]=\"{standalone:true}\" [(ngModel)]=\"code.content\">\n            <small class=\"form-text text-muted\">Choose a file</small>\n        </div>\n        <div class=\"form-group\" *ngIf=\"type=='link'\">\n            <div class=\"input-group mb-2\">\n              <div class=\"input-group-prepend\">\n                <div class=\"input-group-text\">http://</div>\n              </div>\n              <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"link.com\"  [ngModelOptions]=\"{standalone:true}\" [(ngModel)]=\"code.content\">\n            </div>\n            <small class=\"form-text text-muted\">Links are welcome aswell.</small>\n        </div>\n        <div class=\"form-group\" *ngIf=\"code.content\">\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"code.recv\" [ngModelOptions]=\"{standalone:true}\" /> \n          <small class=\"form-text text-muted\">Seperate receiver emails with a comma or specify this as 'public' for anyone to scan.</small>\n        </div>\n        <div class=\"m-4\" *ngIf=\"code.recv\">\n          <div class=\"row\">\n            <div class=\"col\">\n                <button class=\"btn btn-small btn-primary btn-block\" (click)=\"hasTime = !hasTime\">Time Limiter</button>\n            </div>\n            <div class=\"col\" *ngIf=\"type=='file'\">\n                <button class=\"btn btn-small btn-primary btn-block\" (click)=\"toggleDL()\">{{dlTxt}}</button>\n            </div>\n          </div>\n        </div> \n        <div class=\"row\" *ngIf=\"hasTime\">\n          <div class=\"col-md-9\">\n            <div class=\"form-group\" >\n              <label for=\"formControlRange\">Time</label>\n              <input type=\"range\" value=\"1\" min=\"1\" max=\"60\" class=\"form-control-range\" [ngModelOptions]=\"{standalone:true}\" id=\"formControlRange\" value=\"8\" [(ngModel)]=\"code.time\" (change)=\"showValue()\">\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <select value=\"minutes\" [(ngModel)]=\"code.timescale\" [ngModelOptions]=\"{standalone:true}\" class=\"custom-select custom-select-lg mb-3\">\n                <option selected value=\"minutes\">Minutes</option>\n                <option value=\"hours\">Hours</option>\n                <option value=\"days\">Days</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"row justify-content-center\">\n          <div class=\"col-md-5\">\n            <div #qr>\n              <ngx-qrcode [qrc-value]=\"encodedQR\" class=\"img-responsive\"></ngx-qrcode>\n              <ng2-qrcode-reader (result)=\"render($event)\" [qrr-show]=\"false\" [qrr-value]=\"qrImgData\"></ng2-qrcode-reader>\n            </div>\n          </div>\n        </div>\n        <div class=\"row justify-content-center\">\n          <div class=\"col-md-3 col-sm-12\">\n            <button type=\"submit\" class=\"btn btn-primary btn-block\" (click)=\"createCode()\">Submit</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>"
+module.exports = "\n<div class=\"container\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-md-8 col-sm-12\">\n      <form>\n        <div class=\"row m-5\">\n          <div class=\"col-md-4\">\n            <button class=\"btn btn-small btn-primary btn-block\" (click)=\"setType('msg')\">Message</button>\n          </div>\n          <div class=\"col-md-4\">\n            <button class=\"btn btn-small btn-primary btn-block\" (click)=\"setType('file')\">File</button>\n          </div>\n          <div class=\"col-md-4\">\n            <button class=\"btn btn-small btn-primary btn-block\" (click)=\"setType('link')\">Link</button>\n          </div>\n        </div>\n        <div class=\"form-group\" *ngIf=\"type=='msg'\">\n          <textarea [(ngModel)]=\"code.content\" class=\"form-control\" id=\"codeContent\" [ngModelOptions]=\"{standalone:true}\" [(ngModel)]=\"code.content\">\n          </textarea>\n          <small class=\"form-text text-muted\">Please be curse-sensitive with messages and clean :)</small>\n        </div>\n        <div class=\"form-group\" *ngIf=\"type=='file'\">\n            <input type=\"file\" class=\"form-control-file\" id=\"codeContent\" [ngModelOptions]=\"{standalone:true}\" [(ngModel)]=\"code.content\">\n            <small class=\"form-text text-muted\">Choose a file</small>\n        </div>\n        <div class=\"form-group\" *ngIf=\"type=='link'\">\n            <div class=\"input-group mb-2\">\n              <div class=\"input-group-prepend\">\n                <div class=\"input-group-text\">http://</div>\n              </div>\n              <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"link.com\"  [ngModelOptions]=\"{standalone:true}\" [(ngModel)]=\"code.content\">\n            </div>\n            <small class=\"form-text text-muted\">Links are welcome aswell.</small>\n        </div>\n        <div class=\"form-group\" *ngIf=\"code.content\">\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"code.recv\" [ngModelOptions]=\"{standalone:true}\" /> \n          <small class=\"form-text text-muted\">Seperate receiver emails with a comma or specify this as 'public' for anyone to scan.</small>\n        </div>\n        <div class=\"m-4\" *ngIf=\"code.recv\">\n          <div class=\"row\">\n            <div class=\"col\">\n                <button class=\"btn btn-small btn-primary btn-block\" (click)=\"hasTime = !hasTime\">Time Limiter</button>\n            </div>\n            <div class=\"col\" *ngIf=\"type=='file'\">\n                <button class=\"btn btn-small btn-primary btn-block\" (click)=\"toggleDL()\">{{dlTxt}}</button>\n            </div>\n          </div>\n        </div> \n        <div class=\"row\" *ngIf=\"hasTime\">\n          <div class=\"col-md-9\">\n            <div class=\"form-group\" >\n              <label for=\"formControlRange\">Time</label>\n              <input type=\"range\" value=\"1\" min=\"1\" max=\"60\" class=\"form-control-range\" [ngModelOptions]=\"{standalone:true}\" id=\"formControlRange\" value=\"8\" [(ngModel)]=\"code.time\" (change)=\"showValue()\">\n            </div>\n          </div>\n          <div class=\"col-md-3\">\n            <select value=\"minutes\" [(ngModel)]=\"code.timescale\" [ngModelOptions]=\"{standalone:true}\" class=\"custom-select custom-select-lg mb-3\">\n                <option selected value=\"minutes\">Minutes</option>\n                <option value=\"hours\">Hours</option>\n                <option value=\"days\">Days</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"row justify-content-center\">\n          <div class=\"col-md-5\">\n            <div #qr>\n              <ngx-qrcode [qrc-value]=\"encodedQR\" class=\"img-responsive\"></ngx-qrcode>\n              <ng2-qrcode-reader (result)=\"render($event)\" [qrr-show]=\"false\" [qrr-value]=\"readQR\"></ng2-qrcode-reader>\n            </div>\n          </div>\n        </div>\n        <div class=\"row justify-content-center\">\n          <div class=\"col-md-3 col-sm-12\">\n            <button type=\"submit\" class=\"btn btn-primary btn-block\" (click)=\"createCode()\">Submit</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "\n<div class=\"container\">\n  <div class=\"row justify-conten
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n  <div class=\"row justify-content-center\" *ngIf=\"user.email\">\n    <div class=\"col-md-3 col-sm-12 text-center\">\n      <p class=\"userName\">Hello, {{user.first_name}}</p>\n      <a (click)=\"logout()\" class=\"btn btn-link btn-sm logoutBtn\">Logout</a>\n      <button class=\"btn btn-primary btn-block\" routerLink=\"/create-code\">Create a code</button>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          My Codes\n          <span *ngIf=\"codes\" class=\"badge badge-primary badge-pill\">{{codes.length}}</span>\n        </li>\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          Shared Codes\n          <span class=\"badge badge-primary badge-pill\">1</span>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-9 col-sm-12\" *ngIf=\"codes\">\n      <div class=\"row\">\n        <ng2-qrcode-reader (result)=\"render($event)\" [qrr-show]=\"false\" [qrr-value]=\"qrImageData\"></ng2-qrcode-reader>\n            \n        <div class=\"col-4 m-3\" *ngFor=\"let code of codes\">\n          <div class=\"card\">\n            <img src=\"{{code.data}}\" class=\"card-img-top\">\n            <div class=\"card-body\">\n              <a (click)=\"renderCode(code)\" class=\"btn btn-primary\">Details</a>\n            </div>\n          </div>\n        </div>\n        </div>\n    </div>\n  </div>\n</div>"
+module.exports = "\n<div class=\"container\">\n  <div class=\"row justify-content-center\" *ngIf=\"user.email\">\n    <div class=\"col-md-3 col-sm-12 text-center\">\n      <p class=\"userName\">Hello, {{user.first_name}}</p>\n      <a (click)=\"logout()\" class=\"btn btn-link btn-sm logoutBtn\">Logout</a>\n      <button class=\"btn btn-primary btn-block\" routerLink=\"/create-code\">Create a code</button>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          My Codes:\n          <span *ngIf=\"codes\" class=\"badge badge-primary badge-pill\">{{codes.length}}</span>\n        </li>\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          Shared Codes:\n          <span class=\"badge badge-primary badge-pill\">1</span>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-9 col-sm-12\">\n      <div class=\"row\" *ngIf=\"codes\">\n        <ng2-qrcode-reader (result)=\"render($event)\" [qrr-show]=\"false\" [qrr-value]=\"qrImageData\"></ng2-qrcode-reader>\n  \n        <div class=\"col-4\" *ngFor=\"let code of codes\">\n          <div class=\"card my-2\">\n            <img src=\"{{code.data}}\" class=\"card-img-top\">\n            <div class=\"card-body\">\n              <a (click)=\"renderCode(code)\" class=\"btn btn-primary\">Details</a>\n            </div>\n          </div>\n        </div>\n        </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -407,8 +407,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _fb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fb */ "./src/app/fb.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-
 
 
 
@@ -416,19 +414,20 @@ var CodeService = /** @class */ (function () {
     function CodeService() {
     }
     CodeService.prototype.getUserCodes = function (email) {
-        var codeObserver = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (watcher) {
+        var codeObserver = new Promise(function (resolve) {
             var db = _fb__WEBPACK_IMPORTED_MODULE_2__["default"].firestore();
             var codes = db.collection('code_data');
             var codeArray = [];
             codes.where('owner', '==', email).onSnapshot(function (snapshot) {
                 snapshot.docChanges().forEach(function (c) {
                     if (c.type == 'added') {
-                        var codeData = c.doc.data();
-                        codeArray.push(codeData);
+                        var codeData = c.doc;
+                        var cData = codeData.data();
+                        cData.id = codeData.id;
+                        codeArray.push(cData);
+                        resolve(codeArray);
                     }
                 });
-                watcher.next(codeArray);
-                watcher.complete();
             });
         });
         return codeObserver;
@@ -548,28 +547,31 @@ var CreateCodeComponent = /** @class */ (function () {
         }
         return timeMult;
     };
-    CreateCodeComponent.prototype.generateQRData = function (dataArr) {
+    CreateCodeComponent.prototype.generateQRData = function (dataObj) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var imgInt;
+            var imgData, imgInt;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.encodedQR = dataArr;
-                        console.log(this.encodedQR);
+                        this.encodedQR = JSON.stringify({ pc: dataObj['content_id'] });
+                        imgData = '';
                         return [4 /*yield*/, setInterval(function () {
                                 var q = _this.qr.nativeElement.children[0].children[0].children[0].src;
                                 if (q) {
-                                    var imgData_1 = q;
-                                    console.log(imgData_1);
-                                    var db = _fb__WEBPACK_IMPORTED_MODULE_4__["default"].firestore();
-                                    var code_data = db.collection('code_data');
-                                    var _id = code_data.doc().id;
-                                    code_data.doc(_id).set({ id: _id, data: imgData_1, owner: _this.user.email, createdAt: Date.now() }).then(function (docRef) {
-                                        console.log('code data added!');
-                                        _this.qrImgData = imgData_1;
-                                    });
+                                    imgData = q;
                                     clearInterval(imgInt);
+                                    var db_1 = _fb__WEBPACK_IMPORTED_MODULE_4__["default"].firestore();
+                                    var code_data = db_1.collection('code_data');
+                                    var cid_1 = dataObj['content_id'];
+                                    delete dataObj['content_id'];
+                                    dataObj.data = imgData;
+                                    code_data.add(dataObj).then(function (docRef) {
+                                        _this.readQR = imgData;
+                                        db_1.collection('code_content').doc(cid_1).update({ data_id: docRef.id }).then(function () {
+                                        });
+                                        _this.router.navigateByUrl('home');
+                                    });
                                 }
                             }, 100)];
                     case 1:
@@ -587,25 +589,28 @@ var CreateCodeComponent = /** @class */ (function () {
         var _codeData = {};
         if (this.user.email) {
             if (this.code.content) {
-                _codeData['o'] = this.user.email;
+                _codeData['owner'] = this.user.email;
+                _codeData['type'] = this.type;
                 var db = _fb__WEBPACK_IMPORTED_MODULE_4__["default"].firestore();
                 var code_content = db.collection('code_content');
-                var _content_id_1 = code_content.doc().id;
-                var _newContent = { id: _content_id_1, content: this.code.content };
+                var _newContent = { content: this.code.content };
                 //Process our qrobject filters for encoding after content is saved
-                code_content.doc(_content_id_1).set(_newContent).then(function () {
-                    console.log('code added');
-                    _codeData['cid'] = _content_id_1;
-                    _codeData['rcv'] = _this.code.recv.split(',');
+                code_content.add(_newContent).then(function (added_content) {
+                    _codeData['content_id'] = added_content.id;
+                    var _recv = _this.code.recv.split(',');
+                    if (_recv[0] == 'public') {
+                        _codeData['public'] = true;
+                        delete _codeData['recv'];
+                    }
+                    else
+                        _codeData['recv'] = _this.code.recv.split(',');
                     if (_this.hasTime) {
                         var seconds = _this.code.time * _this.multiplier(_this.code.timescale);
-                        _codeData['t'] = Date.now() + seconds;
+                        _codeData['time'] = Date.now() + seconds;
                     }
                     if (_this.canDL)
                         _codeData['dl'] = true;
-                    else
-                        _codeData['dl'] = false;
-                    _this.generateQRData(JSON.stringify(_codeData));
+                    _this.generateQRData(_codeData);
                 });
             }
         }
@@ -695,19 +700,32 @@ var HomeComponent = /** @class */ (function () {
         this.zone = zone;
         this.router = router;
         this.user = {};
-        this.codes = [];
+        /*aqr.create({
+          text: 'Awesome-qr makes the QR code awesome!',
+          size: 800,
+          backgroundImage: 'http://localhost:4201/assets/img/logo.png',
+          callback: data => {
+            console.log(data);
+          },
+          bindElement: 'img-qrcode'
+       });*/
+        //console.log(AwesomeQRCode);
     }
-    HomeComponent.prototype.ngOnInit = function () {
+    HomeComponent.prototype.ngAfterContentInit = function () {
         var _this = this;
+        this.msg = "The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.\n    The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.\n    The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.";
         this.authService.getUserInfo().then(function (user) {
             if (!user.email)
                 _this.router.navigateByUrl('/landing');
             else
                 _this.user = user;
-            _this.codeService.getUserCodes(_this.user.email).subscribe(function (data) {
+            _this.codeService.getUserCodes(_this.user.email).then(function (data) {
                 _this.codes = data;
+                console.log(data);
             });
         });
+    };
+    HomeComponent.prototype.ngOnInit = function () {
     };
     HomeComponent.prototype.renderCode = function (code) {
         this.qrImageData = code.data;
