@@ -27,7 +27,7 @@ export class CreateCodeComponent implements OnInit {
   ngOnInit() {
     this.authService.getUserInfo().then(user => {
       if(!user.email)
-        this.router.navigateByUrl('/landing');
+        this.router.navigateByUrl('landing');
       else
         this.user = user;
     })

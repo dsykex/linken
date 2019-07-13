@@ -31,8 +31,8 @@
  * @see <a href="http://jeromeetienne.github.com/jquery-qrcode/" target="_blank">http://jeromeetienne.github.com/jquery-qrcode/</a>
  */
 
-export var AwesomeQRCode;
-export var GIFE;
+var AwesomeQRCode;
+var GIFE;
 
 require([__awesome_qr_base_path+'/gif'], function (gifEncoder) {
     GIFE = gifEncoder;

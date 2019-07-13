@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef, Renderer } from '@angular/core';
 import * as firebase from './fb';
 
+declare var requirejs: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,8 @@ export class AppComponent {
   public qrdata: any;
   public qrImageData;
   public codes: any = [];
+
+  
   @ViewChild('result', {static: false}) resultElement: ElementRef;
   public showQRCode : boolean = true;
 

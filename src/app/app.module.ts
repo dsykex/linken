@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateCodeComponent } from './create-code/create-code.component';
 import { CodeDetailsComponent } from './code-details/code-details.component';
 import {AngularFireModule} from '@angular/fire';
+import { CodePickerComponent } from './code-picker/code-picker.component';
 
 export const fbConfig = {
     apiKey: "AIzaSyAIcvfYspNPfT0pnSZR3qV8WcBrH3S3hyY",
@@ -27,7 +28,8 @@ export const fbConfig = {
     LandingComponent,
     HomeComponent,
     CreateCodeComponent,
-    CodeDetailsComponent
+    CodeDetailsComponent,
+    CodePickerComponent
   ],
   imports: [
     BrowserModule,
