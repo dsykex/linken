@@ -31,17 +31,13 @@ export class HomeComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.msg = `The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.
-    The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.
-    The following vanilla experience opens up with Stino vs Sodapoppin in a duel that ends in less than 6 seconds. Enjoy this wow classic funniest moments episode 19.`
-
+    
     this.authService.getUserInfo().then(user => {
       if(!user.email)
         this.router.navigateByUrl('/landing');
       else
         this.user = user;
 
-     
         this.codeService.getUserCodes(this.user.email).then(data => {
           this.codes = data;
           console.log(data);
@@ -71,6 +67,17 @@ export class HomeComponent implements OnInit, AfterContentInit {
   {
     firebase.default.auth().signOut().then(()=> {
       this.router.navigateByUrl('landing');
+    })
+  }
+
+  deleteAll()
+  {
+    let db = firebase.default.firestore();
+    let code_data = db.collection('code_data');
+    let code_content = db.collection('code_content');
+
+    code_data.get().then(data => {
+     
     })
   }
 

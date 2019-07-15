@@ -4,7 +4,7 @@
     <div class="col-md-3 col-sm-12 text-center">
       <p class="userName">Hello, {{user.first_name}}</p>
       <a (click)="logout()" class="btn btn-link btn-sm logoutBtn">Logout</a>
-      <button class="btn btn-primary btn-block" routerLink="/create-code">Create a code</button>
+      <button class="btn btn-primary btn-block" routerLink="/code-picker">Create a code</button>
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           My Codes:
@@ -14,6 +14,9 @@
           Shared Codes:
           <span class="badge badge-primary badge-pill">1</span>
         </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <button class="btn btn-small btn-primary btn-block" (click)="deleteAll()">Delete all</button>
+        </li>
       </ul>
     </div>
     <div class="col-md-9 col-sm-12">
@@ -21,11 +24,14 @@
         <ng2-qrcode-reader (result)="render($event)" [qrr-show]="false" [qrr-value]="qrImageData"></ng2-qrcode-reader>
   
         <div class="col-4" *ngFor="let code of codes">
-          <div class="card my-2">
-            <img src="{{code.data}}" class="card-img-top">
-            <div class="card-body">
+          <div class="qrholder border">
+            <div class="img-section">
+              <img [style.background]="{'url': 'http://www.liberaldictionary.com/wp-content/uploads/2018/11/outer-space.jpg'}" class="bg-overlay">
+              <img src="{{code.data}}" class="qrimg">
+            </div>
+            <div class="qr-details">
               <p>{{code.type}}</p>
-              <a (click)="renderCode(code)" class="btn btn-primary">Details</a>
+              <a (click)="renderCode(code)" class="btn btn-primary btn-block">Details</a>
             </div>
           </div>
         </div>
